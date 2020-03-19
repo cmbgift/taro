@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/taro-quickapp",
+  "private": true,
   "version": "2.0.7",
   "description": "Taro quickapp framework",
   "main": "index.js",

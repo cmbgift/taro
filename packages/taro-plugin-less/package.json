@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/plugin-less",
+  "private": true,
   "version": "2.0.7",
   "description": "Taro 编译 less 文件",
   "main": "index.js",

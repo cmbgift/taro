@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/mini-runner",
+  "private": true,
   "version": "2.0.7",
   "description": "Mini app runner for taro",
   "main": "index.js",

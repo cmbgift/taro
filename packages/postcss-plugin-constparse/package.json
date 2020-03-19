@@ -1,5 +1,6 @@
 {
   "name": "postcss-plugin-constparse",
+  "private": true,
   "version": "2.0.7",
   "description": "parse constants defined in config",
   "main": "index.js",

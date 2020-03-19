@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/taro",
+  "private": true,
   "version": "2.0.7",
   "description": "Taro framework",
   "module": "dist/index.esm.js",

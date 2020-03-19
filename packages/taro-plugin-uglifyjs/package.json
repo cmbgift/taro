@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/plugin-uglifyjs",
+  "private": true,
   "version": "2.0.7",
   "description": "Taro压缩JS文件",
   "main": "index.js",

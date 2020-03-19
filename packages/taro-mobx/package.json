@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/mobx",
+  "private": true,
   "version": "2.0.7",
   "description": "mobx for taro",
   "keywords": [

@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/runner-utils",
+  "private": true,
   "version": "2.0.7",
   "description": "Taro runner utilities.",
   "main": "dist/index.js",

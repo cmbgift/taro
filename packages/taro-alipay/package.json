@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/taro-alipay",
+  "private": true,
   "version": "2.0.7",
   "description": "Taro alipay framework",
   "main": "index.js",

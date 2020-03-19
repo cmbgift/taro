@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/taro-tt",
+  "private": true,
   "version": "2.0.7",
   "description": "Taro toutiao framework",
   "main": "index.js",

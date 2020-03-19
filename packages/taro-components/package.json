@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/components",
+  "private": true,
   "version": "2.0.7",
   "description": "",
   "main:h5": "src/index.js",

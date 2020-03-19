@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/redux",
+  "private": true,
   "version": "2.0.7",
   "description": "Redux for Taro",
   "main": "index.js",

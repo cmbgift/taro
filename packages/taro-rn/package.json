@@ -1,5 +1,6 @@
 {
   "name": "@tarojs/taro-rn",
+  "private": true,
   "version": "2.0.7",
   "description": "Taro RN framework",
   "main": "./index.js",

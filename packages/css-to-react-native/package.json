@@ -1,5 +1,6 @@
 {
   "name": "taro-css-to-react-native",
+  "private": true,
   "description": "Convert CSS text to a React Native stylesheet object",
   "version": "2.0.7",
   "main": "dist/index.js",
