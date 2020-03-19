@@ -1,7 +1,7 @@
 {
   "name": "@tarojs/components-qa",
   "private": true,
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "多端解决方案基础组件（快应用）",
   "main": "./index.js",
   "files": [

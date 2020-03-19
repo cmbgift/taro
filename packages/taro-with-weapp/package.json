@@ -1,7 +1,7 @@
 {
   "name": "@tarojs/with-weapp",
   "private": true,
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "taroize 之后的运行时",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "author": "yuche",
   "license": "MIT",
   "dependencies": {
-    "@tarojs/taro": "2.0.7",
+    "@tarojs/taro": "2.0.8",
     "lodash": "^4.17.11"
   },
   "devDependencies": {
