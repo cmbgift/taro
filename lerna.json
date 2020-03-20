@@ -9,6 +9,7 @@
     "packages/taro-components-rn",
     "packages/taro-components-qa",
     "packages/taro-h5",
+    "packages/taro-cmb",
     "packages/taro-plugin-babel",
     "packages/taro-plugin-csso",
     "packages/taro-plugin-sass",
