@@ -16,6 +16,7 @@ let processedScriptFiles: Set<string> = new Set()
 export const WEAPP_OUTPUT_NAME = 'weapp'
 export const QUICKAPP_OUTPUT_NAME = 'quickappp'
 export const H5_OUTPUT_NAME = 'h5'
+export const CMB_OUTPUT_NAME = 'cmb'
 export const RN_OUTPUT_NAME = 'rn'
 export const TEMP_DIR = '.temp'
 export const RN_TEMP_DIR = 'rn_temp'

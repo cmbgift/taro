@@ -1,5 +1,5 @@
 {
-  "name": "@tarojs/cli",
+  "name": "@sirius-black/taro-cli",
   "version": "2.0.7",
   "description": "cli tool for taro",
   "main": "index.js",

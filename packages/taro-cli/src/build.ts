@@ -52,7 +52,7 @@ export default class Builder {
     const outputPath = path.join(this.appPath, `${this.config.outputRoot || CONFIG.OUTPUT_DIR}`)
     if (!fs.existsSync(outputPath)) {
       fs.ensureDirSync(outputPath)
-    } else if (type !== BUILD_TYPES.H5 && (type !== BUILD_TYPES.QUICKAPP || !watch)) {
+    } else if ((type !== BUILD_TYPES.H5 || type !== BUILD_TYPES.CMB) && (type !== BUILD_TYPES.QUICKAPP || !watch)) {
       emptyDirectory(outputPath)
     }
   }
@@ -62,6 +62,9 @@ export default class Builder {
     const {type, watch, platform, port, uiIndex} = buildOptions
     this.emptyFirst({type, watch})
     switch (type) {
+      case BUILD_TYPES.CMB:
+        this.buildForCMB(this.appPath, {watch, port})
+        break
       case BUILD_TYPES.H5:
         this.buildForH5(this.appPath, {watch, port})
         break
@@ -88,8 +91,12 @@ export default class Builder {
         break
       default:
         console.log(
-          chalk.red('输入类型错误，目前只支持 weapp/swan/alipay/tt/qq/h5/quickapp/rn 八端类型'))
+          chalk.red('输入类型错误，目前只支持 weapp/swan/alipay/tt/qq/h5/quickapp/rn/cmb 九端类型'))
     }
+  }
+
+  buildForCMB (appPath: string, buildOptions: IBuildOptions) {
+    require('./cmb').build(appPath, buildOptions)
   }
 
   buildForH5 (appPath: string, buildOptions: IBuildOptions) {

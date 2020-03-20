@@ -6,6 +6,7 @@ import * as _ from 'lodash'
 
 import { Compiler } from '../h5'
 import { buildH5Script, buildForH5 } from './h5'
+import { buildCMBScript, buildForCMB } from './cmb'
 import { buildForRN } from './rn'
 import { buildForWeapp } from './weapp'
 import { buildForQuickapp } from './quickapp'
@@ -22,6 +23,7 @@ import { setBuildData as setMiniBuildData } from '../mini/helper'
 import { IBuildData } from './ui.types'
 import {
   H5_OUTPUT_NAME,
+  CMB_OUTPUT_NAME,
   RN_OUTPUT_NAME,
   TEMP_DIR,
   RN_TEMP_DIR,
@@ -173,6 +175,28 @@ function watchFiles () {
     }
   }
 
+  function syncCMBFile (filePath, compiler) {
+    const {sourceDir, appPath, outputDirName, tempPath} = buildData
+    const outputDir = path.join(appPath, outputDirName, CMB_OUTPUT_NAME)
+    let fileTempPath = filePath.replace(sourceDir, tempPath)
+    fileTempPath = fileTempPath.replace(new RegExp(`${path.extname(fileTempPath)}$`), '')
+    fileTempPath = resolveScriptPath(fileTempPath)
+    compiler.processFiles(filePath)
+
+    if (process.env.TARO_BUILD_TYPE === 'script') {
+      buildCMBScript(buildData)
+    } else {
+      copyFileToDist(fileTempPath, tempPath, outputDir, buildData)
+      // 依赖分析
+      const extname = path.extname(filePath)
+      if (REG_STYLE.test(extname)) {
+        analyzeStyleFilesImport([fileTempPath], tempPath, outputDir, buildData)
+      } else {
+        analyzeFiles([fileTempPath], tempPath, outputDir, buildData)
+      }
+    }
+  }
+
   function syncRNFile (filePath, compiler) {
     const {sourceDir, appPath, outputDirName, rnTempPath} = buildData
     const outputDir = path.join(appPath, outputDirName, RN_OUTPUT_NAME)
@@ -210,10 +234,12 @@ function watchFiles () {
         platforms.includes(BUILD_TYPES.WEAPP) && syncWeappFile(filePath)
         platforms.includes(BUILD_TYPES.QUICKAPP) && syncQuickappFile(filePath)
         platforms.includes(BUILD_TYPES.H5) && syncH5File(filePath, compiler)
+        platforms.includes(BUILD_TYPES.CMB) && syncCMBFile(filePath, compiler)
         platforms.includes(BUILD_TYPES.RN) && syncRNFile(filePath, rnCompiler)
       } else {
         syncWeappFile(filePath)
         syncH5File(filePath, compiler)
+        syncCMBFile(filePath, compiler)
       }
     } catch (err) {
       console.log(err)
@@ -233,14 +259,18 @@ function watchFiles () {
       const weappOutputPath = path.join(appPath, outputDirName, WEAPP_OUTPUT_NAME)
       const quickappOutputPath = path.join(appPath, outputDirName, QUICKAPP_OUTPUT_NAME)
       const h5OutputPath = path.join(appPath, outputDirName, H5_OUTPUT_NAME)
+      const cmbOutputPath = path.join(appPath, outputDirName, CMB_OUTPUT_NAME)
       const fileTempPath = filePath.replace(sourceDir, tempPath)
       const fileWeappPath = filePath.replace(sourceDir, weappOutputPath)
       const fileQuickappPath = filePath.replace(sourceDir, quickappOutputPath)
       const fileH5Path = filePath.replace(sourceDir, h5OutputPath)
+      const fileCMBPath = filePath.replace(sourceDir, cmbOutputPath)
+
       fs.existsSync(fileTempPath) && fs.unlinkSync(fileTempPath)
       fs.existsSync(fileWeappPath) && fs.unlinkSync(fileWeappPath)
       fs.existsSync(fileQuickappPath) && fs.unlinkSync(fileQuickappPath)
       fs.existsSync(fileH5Path) && fs.unlinkSync(fileH5Path)
+      fs.existsSync(fileCMBPath) && fs.unlinkSync(fileCMBPath)
     })
 }
 
@@ -254,10 +284,12 @@ export async function build (appPath, {watch, uiIndex}: IBuildOptions) {
     platforms.includes(BUILD_TYPES.WEAPP) && await buildForWeapp(buildData)
     platforms.includes(BUILD_TYPES.QUICKAPP) && await buildForQuickapp(buildData)
     platforms.includes(BUILD_TYPES.H5) && await buildForH5(uiIndex, buildData)
+    platforms.includes(BUILD_TYPES.CMB) && await buildForCMB(uiIndex, buildData)
     platforms.includes(BUILD_TYPES.RN) && await buildForRN(uiIndex, buildData)
   } else {
     await buildForWeapp(buildData)
     await buildForH5(uiIndex, buildData)
+    await buildForCMB(uiIndex, buildData)
   }
   if (watch) {
     watchFiles()

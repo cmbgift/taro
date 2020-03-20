@@ -65,7 +65,7 @@ export async function buildWithWebpack ({appPath, watch}: { appPath: string, wat
     designWidth: projectConfig.designWidth,
     deviceRatio: projectConfig.deviceRatio,
     nodeModulesPath,
-    ...projectConfig.rn
+    // ...projectConfig.rn
   }
   // console.log('rnRunnerOpts', rnRunnerOpts)
   await rnRunner(appPath, rnRunnerOpts, builder)

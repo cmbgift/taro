@@ -100,6 +100,7 @@ export const NODE_MODULES_REG = /(.*)node_modules/
 export const enum BUILD_TYPES {
   WEAPP = 'weapp',
   H5 ='h5',
+  CMB ='cmb',
   RN ='rn',
   SWAN ='swan',
   ALIPAY ='alipay',
