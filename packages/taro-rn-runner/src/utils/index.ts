@@ -17,7 +17,7 @@ import {
   GLOBAL_PROPS
 } from './constants'
 import { IOption, IComponentObj } from './types'
-import { CSS_EXT } from '@tarojs/cli/dist/util/constants'
+import { CSS_EXT } from './constants'
 
 export const isNodeModule = (filename: string) => NODE_MODULES_REG.test(filename)
 
