@@ -1,5 +1,5 @@
 {
-  "name": "@sirius-black/taro-cmb",
+  "name": "@gift-adv/taro-cmb",
   "version": "2.0.7",
   "description": "Taro CMB framework",
   "main:h5": "src/index.js",

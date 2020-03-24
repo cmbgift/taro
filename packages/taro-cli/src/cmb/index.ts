@@ -91,14 +91,14 @@ class Compiler {
 
   constructor (public appPath: string, entryFile?: string, isUi?: boolean) {
     const projectConfig = recursiveMerge({
-      h5: defaultH5Config
+      cmb: defaultH5Config
     }, require(path.join(appPath, PROJECT_CONFIG))(merge))
     this.projectConfig = projectConfig
     const sourceDir = projectConfig.sourceRoot || CONFIG.SOURCE_DIR
     this.sourceRoot = sourceDir
     const outputDir = projectConfig.outputRoot || CONFIG.OUTPUT_DIR
     this.outputDir = outputDir
-    this.h5Config = get(projectConfig, 'h5')
+    this.h5Config = get(projectConfig, BUILD_TYPES.CMB)
     this.routerConfig = get(projectConfig, 'h5.router', {})
     this.sourcePath = path.join(appPath, sourceDir)
     this.outputPath = path.join(appPath, outputDir)
@@ -1459,7 +1459,7 @@ export { Compiler }
 
 export async function build (appPath: string, buildConfig: IBuildOptions) {
   process.env.TARO_ENV = BUILD_TYPES.CMB
-  await checkCliAndFrameworkVersion(appPath, BUILD_TYPES.CMB)
+  // await checkCliAndFrameworkVersion(appPath, BUILD_TYPES.CMB)
   const compiler = new Compiler(appPath)
   await compiler.clean()
   await compiler.buildTemp()
