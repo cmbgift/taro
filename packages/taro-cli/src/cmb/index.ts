@@ -1459,7 +1459,7 @@ export { Compiler }
 
 export async function build (appPath: string, buildConfig: IBuildOptions) {
   process.env.TARO_ENV = BUILD_TYPES.CMB
-  // await checkCliAndFrameworkVersion(appPath, BUILD_TYPES.CMB)
+  await checkCliAndFrameworkVersion(appPath, BUILD_TYPES.CMB)
   const compiler = new Compiler(appPath)
   await compiler.clean()
   await compiler.buildTemp()
