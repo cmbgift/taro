@@ -14,10 +14,10 @@ import {
   processTypeMap,
   processTypeEnum,
   BUILD_TYPES,
-  GLOBAL_PROPS
+  GLOBAL_PROPS,
+  CSS_EXT
 } from './constants'
 import { IOption, IComponentObj } from './types'
-import { CSS_EXT } from './constants'
 
 export const isNodeModule = (filename: string) => NODE_MODULES_REG.test(filename)
 

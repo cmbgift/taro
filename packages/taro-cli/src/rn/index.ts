@@ -6,14 +6,14 @@ import Builder from '../build'
 import * as Util from '../util'
 import { hasRNDep, updatePkgJson } from './helper'
 import * as path from 'path'
-import { spawn, spawnSync, SpawnSyncOptions } from 'child_process'
+import { execSync, spawn, spawnSync, SpawnSyncOptions } from 'child_process'
 import chalk from 'chalk'
 // import { convertToJDReact } from '../jdreact/convert_to_jdreact'
 
 const tcpPortUsed = require('tcp-port-used')
 
 // const TEMP_DIR_NAME = 'rn_temp'
-// const BUNDLE_DIR_NAME = 'rn_bundle'
+const BUNDLE_DIR_NAME = 'rn_bundle'
 
 // 兼容 jdreact
 export async function build (
@@ -35,7 +35,7 @@ export async function build (
     watch
   }, builder)
   if (!watch) {
-    // buildBundle(buildData.outputDir, buildData.rnConfig)
+    buildBundle(buildData.outputDir)
     return
   }
   tcpPortUsed.check(port, '127.0.0.1').then((inUse) => {
@@ -58,25 +58,25 @@ export async function build (
   })
 }
 
-// function buildBundle (outputDir) {
-//   fs.ensureDirSync(outputDir)
-//   // process.chdir(outputDir)
-//   // 通过 jdreact  构建 bundle
-//   // if (rnConfig.bundleType === 'jdreact') {
-//   //   console.log()
-//   //   console.log(chalk.green('生成JDReact 目录：'))
-//   //   console.log()
-//   //   convertToJDReact({
-//   //     tempPath: this.tempPath, entryBaseName: this.entryBaseName
-//   //   })
-//   //   return
-//   // }
-//   // 默认打包到 bundle 文件夹
-//   fs.ensureDirSync(BUNDLE_DIR_NAME)
-//   execSync(
-//     `node ./node_modules/react-native/local-cli/cli.js bundle --entry-file ${outputDir}/index.js --bundle-output ./${BUNDLE_DIR_NAME}/index.bundle --assets-dest ./${BUNDLE_DIR_NAME} --dev false`,
-//     {stdio: 'inherit'})
-// }
+function buildBundle (outputDir) {
+  fs.ensureDirSync(outputDir)
+  // process.chdir(outputDir)
+  // 通过 jdreact  构建 bundle
+  // if (rnConfig.bundleType === 'jdreact') {
+  //   console.log()
+  //   console.log(chalk.green('生成JDReact 目录：'))
+  //   console.log()
+  //   convertToJDReact({
+  //     tempPath: this.tempPath, entryBaseName: this.entryBaseName
+  //   })
+  //   return
+  // }
+  // 默认打包到 bundle 文件夹
+  fs.ensureDirSync(BUNDLE_DIR_NAME)
+  execSync(
+    `node ./node_modules/react-native/local-cli/cli.js bundle --entry-file ${outputDir}/index.js --bundle-output ./${BUNDLE_DIR_NAME}/index.bundle --assets-dest ./${BUNDLE_DIR_NAME} --dev false`,
+    {stdio: 'inherit'})
+}
 
 /**
  * @description run packager server
