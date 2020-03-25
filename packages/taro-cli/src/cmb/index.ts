@@ -331,8 +331,8 @@ class Compiler {
         [require('babel-plugin-preval')],
         [require('babel-plugin-danger-remove-unused-import'), { ignore: ['@tarojs/taro', 'react', 'nervjs'] }],
         [require('babel-plugin-transform-taroapi').default, {
-          apis: require(resolve.sync('@tarojs/taro-h5/dist/taroApis', { basedir: this.appPath })),
-          packageName: '@tarojs/taro-h5'
+          apis: require(resolve.sync('@tarojs/taro-cmb/dist/taroApis', { basedir: this.appPath })),
+          packageName: '@tarojs/taro-cmb'
         }]
       ]
     }).ast
@@ -598,7 +598,7 @@ class Compiler {
             if (specifier) {
               taroImportDefaultName = toVar(specifier.local)
             }
-            source.value = '@tarojs/taro-h5'
+            source.value = '@tarojs/taro-cmb'
           } else if (source.value === '@tarojs/redux') {
             const specifier = specifiers.find(item => {
               return t.isImportSpecifier(item) && item.imported.name === providerComponentName
@@ -665,8 +665,8 @@ class Compiler {
 
           if (calleeName === 'require' && t.isStringLiteral(arg0)) {
             const required = arg0.value
-            if (required === '@tarojs/taro-h5') {
-              arg0.value = `@tarojs/taro-h5/dist/index.cjs.js`
+            if (required === '@tarojs/taro-cmb') {
+              arg0.value = `@tarojs/taro-cmb/dist/index.cjs.js`
             }
           } else if (t.isMemberExpression(callee)) {
             const object = callee.object as t.Identifier
@@ -892,7 +892,7 @@ class Compiler {
         [require('babel-plugin-preval')],
         [require('babel-plugin-danger-remove-unused-import'), { ignore: ['@tarojs/taro', 'react', 'nervjs'] }],
         [require('babel-plugin-transform-taroapi').default, {
-          apis: require(resolve.sync('@tarojs/taro-h5/dist/taroApis', { basedir: this.appPath })),
+          apis: require(resolve.sync('@tarojs/taro-cmb/dist/taroApis', { basedir: this.appPath })),
           packageName: '@tarojs/taro'
         }]
       ]
@@ -1021,7 +1021,7 @@ class Compiler {
                 taroapiMap.set(toVar(specifier.local), toVar(specifier.imported))
               }
             })
-            source.value = '@tarojs/taro-h5'
+            source.value = '@tarojs/taro-cmb'
           } else if (source.value === '@tarojs/redux') {
             source.value = '@tarojs/redux-h5'
           } else if (source.value === '@tarojs/mobx') {
@@ -1117,8 +1117,8 @@ class Compiler {
 
           if (calleeName === 'require' && t.isStringLiteral(arg0)) {
             const required = arg0.value
-            if (required === '@tarojs/taro-h5') {
-              arg0.value = `@tarojs/taro-h5/dist/index.cjs.js`
+            if (required === '@tarojs/taro-cmb') {
+              arg0.value = `@tarojs/taro-cmb/dist/index.cjs.js`
             }
           } else if (t.isMemberExpression(callee)) {
             const objName = toVar(callee.object)
@@ -1177,7 +1177,7 @@ class Compiler {
             if (!importTaroNode) {
               importTaroNode = t.importDeclaration(
                 [t.importDefaultSpecifier(t.identifier('Taro'))],
-                t.stringLiteral('@tarojs/taro-h5')
+                t.stringLiteral('@tarojs/taro-cmb')
               )
               node.body.unshift(importTaroNode)
             }
