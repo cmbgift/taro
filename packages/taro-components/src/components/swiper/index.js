@@ -10,8 +10,15 @@ let INSTANCE_ID = 0
 
 class SwiperItem extends Nerv.Component {
   render () {
-    const cls = classNames('swiper-slide', this.props.className)
-    return <div className={cls} style={this.props.style} item-id={this.props.itemId}>{this.props.children}</div>
+    const { className, style, itemId, children, ...restProps } = this.props
+    const cls = classNames('swiper-slide', className)
+    return <div
+      className={cls}
+      style={style}
+      item-id={itemId}
+      {...restProps}>
+      {children}
+    </div>
   }
 }
 
@@ -33,6 +40,8 @@ class Swiper extends Nerv.Component {
     this._id = INSTANCE_ID + 1
     INSTANCE_ID++
     this._$current = 0
+    this._$width = 0
+    this._$height = 0
   }
 
   componentDidMount () {
@@ -107,19 +116,15 @@ class Swiper extends Nerv.Component {
 
   componentWillReceiveProps (nextProps) {
     if (this.mySwiper) {
-      let nextCurrent = 0
-      if (nextProps.current === 0) {
-        nextCurrent = this._$current || 0
-      } else {
-        nextCurrent = nextProps.current || this._$current || 0
-      }
+      const nextCurrent = typeof nextProps.current === 'number' ? nextProps.current : this._$current || 0
+
       // 是否衔接滚动模式
       if (nextProps.circular) {
         this.mySwiper.loopDestroy()
         this.mySwiper.loopCreate()
-        if (nextProps.current !== 0) this.mySwiper.slideToLoop(parseInt(nextCurrent, 10)) // 更新下标
+        this.mySwiper.slideToLoop(parseInt(nextCurrent, 10)) // 更新下标
       } else {
-        if (nextProps.current !== 0) this.mySwiper.slideTo(parseInt(nextCurrent, 10)) // 更新下标
+        this.mySwiper.slideTo(parseInt(nextCurrent, 10)) // 更新下标
       }
 
       // 判断是否需要停止或开始自动轮播
@@ -133,6 +138,16 @@ class Swiper extends Nerv.Component {
 
       this.mySwiper.update() // 更新子元素
     }
+  }
+
+  componentDidUpdate () {
+    if (!this.mySwiper) return
+    if (this._$width !== this.mySwiper.width || this._$height !== this.mySwiper.height) {
+      this.mySwiper.autoplay.stop()
+      this.mySwiper.autoplay.start()
+    }
+    this._$width = this.mySwiper.width
+    this._$height = this.mySwiper.height
   }
 
   componentWillUnmount () {

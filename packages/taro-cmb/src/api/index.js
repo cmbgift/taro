@@ -4,6 +4,7 @@ export * from './unsupportedApi'
 /* 已实现api */
 export * from './accelerometer'
 export * from './audio'
+export * from './auth'
 export * from './canvas'
 export * from './clipboard'
 export * from './compass'
