@@ -220,7 +220,7 @@ export const setBackgroundTextStyle = temporarilyNotSupport('setBackgroundTextSt
 export const getExtConfig = temporarilyNotSupport('getExtConfig')
 
 // 开放接口
-// export const login = temporarilyNotSupport('login')
+export const login = temporarilyNotSupport('login')
 export const checkSession = temporarilyNotSupport('checkSession')
 export const authorize = temporarilyNotSupport('authorize')
 export const getUserInfo = temporarilyNotSupport('getUserInfo')
