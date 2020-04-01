@@ -187,6 +187,7 @@ class Compiler {
           })
         }))
     }
+
     readFiles.call(this, sourcePath, sourcePath)
     return Promise.all(readPromises)
   }
@@ -598,7 +599,7 @@ class Compiler {
             if (specifier) {
               taroImportDefaultName = toVar(specifier.local)
             }
-            source.value = '@tarojs/taro-cmb'
+            source.value = '@tarojs/taro-h5'
           } else if (source.value === '@tarojs/redux') {
             const specifier = specifiers.find(item => {
               return t.isImportSpecifier(item) && item.imported.name === providerComponentName
