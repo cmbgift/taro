@@ -1,3 +1,3 @@
-import TaroH5 from './type'
+import TaroCMB from './type'
 
-export = TaroH5
+export = TaroCMB
