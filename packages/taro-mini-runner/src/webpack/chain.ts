@@ -180,7 +180,8 @@ export const getModule = (appPath: string, {
   postcss,
   compile,
   babel,
-  alias
+  alias,
+  nodeModulesPath
 }) => {
   const isQuickapp = buildAdapter === BUILD_TYPES.QUICKAPP
   const postcssOption: IPostcssOption = postcss || {}
@@ -255,7 +256,6 @@ export const getModule = (appPath: string, {
     {
       ident: 'postcss',
       plugins: getPostcssPlugins(appPath, {
-        isQuickapp,
         designWidth,
         deviceRatio,
         postcssOption
@@ -277,7 +277,8 @@ export const getModule = (appPath: string, {
     deviceRatio,
     buildAdapter,
     constantsReplaceList,
-    sourceDir
+    sourceDir,
+    nodeModulesPath
   }])
 
   const miniTemplateLoader = getMiniTemplateLoader([{

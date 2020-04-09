@@ -36,13 +36,13 @@ export default class Toast {
       'min-width': '120px',
       'max-width': '200px',
       'min-height': '120px',
-      'padding': '15px',
+      'padding': '7px 20px',
       'transform': 'translate(-50%, -50%)',
       'border-radius': '5px',
       'text-align': 'center',
       'line-height': '1.6',
-      'color': '#FFFFFF',
-      'background': 'rgba(17, 17, 17, 0.7)'
+      'color': '#e4e4e4',
+      'background': 'rgba(0, 0, 0, 0.8)'
     },
     successStyle: {
       'margin': '0',
@@ -71,7 +71,7 @@ export default class Toast {
     },
     textStyle: {
       'margin': '0',
-      'font-size': '16px'
+      'font-size': '14px'
     }
   }
 
@@ -118,7 +118,7 @@ export default class Toast {
       ...toastStyle,
       ...(config.icon === 'none' ? {
         'min-height': '0',
-        'padding': '10px 15px'
+        'padding': '7px 20px'
       } : {})
     }))
 
@@ -188,7 +188,7 @@ export default class Toast {
       ...toastStyle,
       ...(config.icon === 'none' ? {
         'min-height': '0',
-        'padding': '10px 15px'
+        'padding': '7px 20px'
       } : {})
     }))
 

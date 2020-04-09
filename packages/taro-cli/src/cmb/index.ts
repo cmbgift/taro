@@ -99,7 +99,7 @@ class Compiler {
     const outputDir = projectConfig.outputRoot || CONFIG.OUTPUT_DIR
     this.outputDir = outputDir
     this.h5Config = get(projectConfig, BUILD_TYPES.CMB)
-    this.routerConfig = get(projectConfig, 'h5.router', {})
+    this.routerConfig = get(projectConfig, 'cmb.router', {})
     this.sourcePath = path.join(appPath, sourceDir)
     this.outputPath = path.join(appPath, outputDir)
     this.tempDir = CONFIG.TEMP_DIR
@@ -599,7 +599,7 @@ class Compiler {
             if (specifier) {
               taroImportDefaultName = toVar(specifier.local)
             }
-            source.value = '@tarojs/taro-h5'
+            source.value = '@tarojs/taro-cmb'
           } else if (source.value === '@tarojs/redux') {
             const specifier = specifiers.find(item => {
               return t.isImportSpecifier(item) && item.imported.name === providerComponentName
