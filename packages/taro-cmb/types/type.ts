@@ -23,10 +23,10 @@ namespace Router {
   }
 }
 
-interface TaroH5 {
+interface TaroCMB {
   _$router: Router.Location
   $router: Router.RouterParams
 }
 
-const TaroH5: (TaroH5 & typeof Taro) = {} as any
-export default TaroH5
+const TaroCMB: (TaroCMB & typeof Taro) = {} as any
+export default TaroCMB

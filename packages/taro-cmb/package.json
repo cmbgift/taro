@@ -1,8 +1,8 @@
 {
-	"name": "@gift-adv/taro-cmb",
-  "version": "2.1.5",
+  "name": "@gift-adv/taro-cmb",
+  "version": "2.1.7",
   "description": "Taro CMB framework",
-  "main:h5": "src/index.js",
+  "main:cmb": "src/index.js",
   "main": "dist/index.cjs.js",
   "typings": "types/index.d.ts",
   "files": [
