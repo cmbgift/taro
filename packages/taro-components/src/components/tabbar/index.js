@@ -1,5 +1,5 @@
 import 'weui'
-import Taro from '@tarojs/taro-h5'
+import Taro from '@tarojs/taro-cmb'
 import Nerv, { findDOMNode } from 'nervjs'
 import classNames from 'classnames'
 import resolvePathname from 'resolve-pathname'

@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro-h5'
+import Taro from '@tarojs/taro-cmb'
 import classNames from 'classnames'
 import Nerv from 'nervjs'
 

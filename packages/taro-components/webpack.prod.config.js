@@ -1,6 +1,5 @@
 const path = require('path')
-const apis = require('@tarojs/taro-h5/dist/taroApis')
-
+const apis = require('@tarojs/taro-cmb/dist/taroApis')
 module.exports = {
   entry: './src/index.js',
   resolve: {
@@ -17,7 +16,7 @@ module.exports = {
     classnames: 'commonjs2 classnames',
     weui: 'commonjs2 weui',
     'omit.js': 'commonjs2 omit.js',
-    '@tarojs/taro-h5': 'commonjs2 @tarojs/taro-h5'
+    '@tarojs/taro-cmb': 'commonjs2 @tarojs/taro-cmb'
   },
   module: {
     rules: [
@@ -47,7 +46,7 @@ module.exports = {
               ['@babel/plugin-proposal-object-rest-spread'],
               ['babel-plugin-transform-taroapi', {
                 apis,
-                packageName: '@tarojs/taro-h5'
+                packageName: '@tarojs/taro-cmb'
               }]
             ]
           }
