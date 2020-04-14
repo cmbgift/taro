@@ -1,4 +1,4 @@
-import { Component } from '@tarojs/taro-h5'
+import { Component } from '@tarojs/taro-cmb'
 
 type Path = string
 

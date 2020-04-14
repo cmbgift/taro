@@ -3,7 +3,7 @@
  */
 
 import Nerv from 'nervjs';
-import { Component } from '@tarojs/taro-h5';
+import { Component } from '@tarojs/taro-cmb';
 import keys from 'lodash/keys';
 import assign from 'lodash/assign';
 

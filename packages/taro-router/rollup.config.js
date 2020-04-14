@@ -5,7 +5,7 @@ import typescript from 'rollup-plugin-typescript'
 
 export default {
   input: 'src/index.tsx',
-  external: ['nervjs', '@tarojs/taro-h5'],
+  external: ['nervjs', '@tarojs/taro-cmb'],
   output: [{
     file: 'dist/index.js',
     format: 'cjs',

@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro-h5'
+import Taro from '@tarojs/taro-cmb'
 import Nerv, { nextTick } from 'nervjs'
 
 import { tryToCall } from '../utils'

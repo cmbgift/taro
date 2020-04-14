@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro-h5'
+import Taro from '@tarojs/taro-cmb'
 import invariant from 'invariant'
 import rp from 'resolve-pathname'
 

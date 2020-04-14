@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro-h5'
+import Taro from '@tarojs/taro-cmb'
 import invariant from 'invariant'
 import assign from 'lodash/assign'
 import toPairs from 'lodash/toPairs'

@@ -1,5 +1,5 @@
 import warning from 'warning';
-import Taro from '@tarojs/taro-h5';
+import Taro from '@tarojs/taro-cmb';
 import assign from 'lodash/assign';
 
 import { Action, History, HistoryState, Location, CustomRoutes } from '../utils/types';
@@ -157,7 +157,7 @@ const createHistory = (props: { basename?: string, mode: "hash" | "browser" | "m
       const stackTop = currentPageStack.length - 1
       return currentPageStack[stackTop]
     }
-    
+
     return {}
   }
 
@@ -196,9 +196,9 @@ const createHistory = (props: { basename?: string, mode: "hash" | "browser" | "m
         const href = createHref(location)
 
         globalHistory.pushState({ key }, '', href)
-    
+
         store.key = key!
-    
+
         setState({ action, location })
       }
     )
@@ -225,7 +225,7 @@ const createHistory = (props: { basename?: string, mode: "hash" | "browser" | "m
         const href = createHref(location)
 
         globalHistory.replaceState({ key }, '', href)
-    
+
         setState({ action, location })
       }
     )
