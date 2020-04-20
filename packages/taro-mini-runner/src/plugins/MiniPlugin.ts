@@ -281,7 +281,7 @@ export default class MiniPlugin {
 
       compilation.hooks.afterOptimizeChunkAssets.tap(PLUGIN_NAME, chunks => {
         chunks.forEach(chunk => {
-          const id = chunk.id
+          const id = typeof chunk.id === 'string' ? chunk.id : chunk.name
           this.options.commonChunks.forEach(commonName => {
             if (id === commonName) {
               const _modules = chunk._modules
@@ -782,7 +782,7 @@ export default class MiniPlugin {
           depComponents = transformResult.components
           code = transformResult.code
         }
-        depComponents = depComponents.filter(item => !/^(plugin|dynamicLib):\/\//.test(item.path))
+        depComponents = depComponents.filter(item => !/^(plugin|dynamicLib|plugin-private):\/\//.test(item.path))
         this.transformComponentsPath(file.path, depComponents)
         if (isQuickApp) {
           const scriptPath = file.path

@@ -1,5 +1,7 @@
 ---
 title: 接入统计平台
+id: version-2.1.5-report
+original_id: report
 ---
 ## 接入友盟小程序统计平台
 详细见友盟统计平台文档[《如何将友盟SDK集成至Taro框架构建的小程序中》](https://github.com/umeng/mp-demos/tree/master/taro)

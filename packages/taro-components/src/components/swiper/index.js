@@ -149,9 +149,12 @@ class Swiper extends Nerv.Component {
           autoplay.stop()
         }
       }
-      if (!autoplay.paused) {
-        autoplay.run()
-        autoplay.paused = false
+
+      if (this.props.autoplay) {
+        if (!autoplay.paused) {
+          autoplay.run()
+          autoplay.paused = false
+        }
       }
 
       this.mySwiper.update() // 更新子元素
