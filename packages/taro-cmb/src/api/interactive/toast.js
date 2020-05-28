@@ -57,8 +57,8 @@ export default class Toast {
       'margin': '6px auto',
       'width': '38px',
       'height': '38px',
-      '-webkit-animation': 'taroLoading 1s linear infinite',
-      'animation': 'taroLoading 1s linear infinite',
+      '-webkit-animation': 'taroLoading 1s steps(60, end) infinite',
+      'animation': 'taroLoading 1s steps(60, end) infinite',
       'background': 'transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAArlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8tivQqAAAAOnRSTlMABQ1FFgkRPx6VThrVoFwym3NJOi0jzIuDd2BYJ/K3r49+aGM2vFMq99/Dq4dv7Ojkp9rQx8CzbKR74jOHmAAAAmxJREFUSMeN0dl2qkAQheFqmhlFxiCIKKISpzhFMe//YqeKo0mMKP1fsdCP3izgMbVnFm6c52414IEErak8jtbrdb/fz/Ovrzh2k+lrZSXj8TiKfhPX3XjyUyDZxviOxEQ2m03FlWbRiwzDaCJVNUnCBsBsx6CQbLxAVhhT5FSz60MmmP8oXMepTZ9Ld2OnRUWkKDj7I/Jul0iksYeHBQWJIvHY3e24S8QpGl9T4UiSJOHwqwQFGg2eVCZIbHsK3/mXywVFAE/TbRT2QIdrkrMnE8CLLJvI/PY61R67cHhZaA+w6zR9tVrt9xW05BOZq0C5RBypjTBzjtXHyKsRGg6thShMkz7DYIQ5DNrzUJgpXhhE5iBQamIa7jqfz6ORKkIUIp4C/IxFIJTvYRZMsiw7J2IkJVLCOsN8MSJzrAfdGRJdjEhEfBjNMEmMMCIaZEQYiMU1DGan00mYaBScT5joMBI+7E/L5TIUI4qP9WC8xDQxohIpwUXxOREj+hTTwfvEHDFSEpHBQvH2KYsI1qMYwP4NS0SITKLEi4JIxkR2BUgssiiOx0G7UAOKARYdsZPaJlhalkGgA5XiIZ1O1EaslIwCdf0O1TJNClM01m3ksjb8lVDCEE3I4JqH4HA4mC+EHpKR4Lv8gC0W9tNVOhaGMvzEuiQWO0NtFKplWWis+4NXCyK7js0eR6myTET+e/SFxG67PW7uf2KSWhPrj8DYeleTj4+PWW5a15tMkYigaZxsdrZbIsPh8P29y/6LG1GgMdlAcCXv8xshI8HTgu6WBBH3hygMXqXHb7UYlkTIMGhPt6NsxKGu6f//AMNSS+zC75pHAAAAAElFTkSuQmCC) no-repeat',
       'background-size': '100%'
     },
